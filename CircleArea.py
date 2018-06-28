@@ -2,4 +2,5 @@
 import math
 radius = 2
 area = math.pi * radius * radius
-print("Radius: {:5d}, Area: {:.10f}".format(radius, area))
+# print("Radius: {:5d}, Area: {:.10f}".format(radius, area))
+print("{:.10f}".format(area))
