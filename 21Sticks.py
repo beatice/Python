@@ -11,7 +11,7 @@ while stick > 0:
     print("Round ", i)
     print("Sticks left: ", stick)
 
-    while true:
+    while True:
         user = int(input("Please enter the number of sticks (1-4) you want to take: "))
         if 1 <= user <= 4:
             if user == 1:
