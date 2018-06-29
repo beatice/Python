@@ -9,6 +9,7 @@ while stick > 0:
         print()
         print('"21 sticks" start!')
     
+    print()
     print("*" * 50)
     print("Round ", i)
     print("Sticks left: ", stick)
