@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import random
 stick = 21
 i = 1
 print("There are 21 sticks. Each round, you and the computer will take 1-4 sticks in turn, whoever take the last stick will lose the game.")
