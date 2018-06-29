@@ -6,6 +6,7 @@ print("There are 21 sticks. Each round, you and the computer will take 1-4 stick
 
 while stick > 0:
     if i == 1:    
+        print()
         print('"21 sticks" start!')
     
     print("*" * 50)
