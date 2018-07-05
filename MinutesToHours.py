@@ -3,13 +3,14 @@ import sys
 
 l = len(sys.argv)
 for i in range(0,l):
-    print(sys.argv[i])
+    print(i, sys.argv[i])
 
 try:
-    if(sys.argv[1] < 0):
-        raise ValueError
+    if(int(sys.argv[1]) >= 0):
+        hour = int(sys.argv[1]) // 60
+        minutes = int(sys.argv[1]) % 60
+        print("{} H, {} M".format(hour, minutes))
     else:
-        hour = sys.argv[1] / 60
-        minutes = mod(sys.argv[1], 60)
-except:
+        raise ValueError
+except ValueError:
     print("ValueError: Input number cannot be negative")
