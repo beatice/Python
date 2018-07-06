@@ -26,9 +26,16 @@ class Student(Person):
         return "{} studies {} and is in {} year.".format(self.name, self.branch, self.year)
     
     def get_grade(self, grade):
-        c = Counter(grade)
-        print("A: {}, 
-
+        c = Counter(grade).most_common()
+        l = len(c)
+        i = 1
+        for k, v in c.items():
+            if i == l:
+                print("{}: {}".format(k, v))
+            else:
+                print("{}: {}".format(k, v), end=', ')
+                i += 1
+           
 class Teacher(Person):
     """ 返回 Teacher 对象，采用字符串列表作为参数 """
     
@@ -40,12 +47,34 @@ class Teacher(Person):
         return "{} teaches {}".format(self.name, ','.join(self.papers))
     
     def get_grade(self, grade):
-        
-      
+        grade.replace('A', 'Pass ')
+        grade.replace('B', 'Pass ')
+        grade.replace('C', 'Pass ')
+        grade.replace('D', 'Fail ')
+        print(grade)
+        c = Counter(grade).most_common()
+        l = len(c)
+        i = 1
+        for k, v in c.items():
+            if i == l:
+                print("{}: {}".format(k, v))
+            else:
+                print("{}: {}".format(k, v), end=', ')
+                i += 1
+
+
+Below is test data for object create:
 person1 = Person('Sam')
 student1 = Student('Amy', 'CSE', 2009)
 teacher1 = Teacher('John', ['Art', 'Computer', 'Management'])
 
-print(person1.get_details())
-print(student1.get_details())
-print(teacher1.get_details())
+#print(person1.get_details())
+#print(student1.get_details())
+#print(teacher1.get_details())
+
+
+if __name__ = '__main__':
+    if sys.argv[1] = 'teacher':
+        teacher1.get_grade(sys.argv[2])
+    else:
+        student1.get_grade(sys.argv[2])
