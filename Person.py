@@ -26,10 +26,19 @@ class Student(Person):
         return "{} studies {} and is in {} year.".format(self.name, self.branch, self.year)
     
     def get_grade(self, grade):
-        c = Counter(grade).most_common()
+        g1 = grade.replace('A', 'Pass ')
+        g2 = g1.replace('B', 'Pass ')
+        g3 = g2.replace('C', 'Pass ')
+        g4 = g3.replace('D', 'Fail ')
+        g5 = g4.split(' ')
+        #print(g5)
+        del g5[-1]
+        #print(g5)
+        c = Counter(g5).most_common()
         l = len(c)
         i = 1
-        for k, v in c.items():
+        #print(c)
+        for (k,v) in c:
             if i == l:
                 print("{}: {}".format(k, v))
             else:
@@ -47,15 +56,11 @@ class Teacher(Person):
         return "{} teaches {}".format(self.name, ','.join(self.papers))
     
     def get_grade(self, grade):
-        grade.replace('A', 'Pass ')
-        grade.replace('B', 'Pass ')
-        grade.replace('C', 'Pass ')
-        grade.replace('D', 'Fail ')
-        print(grade)
         c = Counter(grade).most_common()
         l = len(c)
         i = 1
-        for k, v in c.items():
+        #print(c)
+        for (k,v) in c:
             if i == l:
                 print("{}: {}".format(k, v))
             else:
@@ -63,7 +68,7 @@ class Teacher(Person):
                 i += 1
 
 
-Below is test data for object create:
+#Below is test data for object create:
 person1 = Person('Sam')
 student1 = Student('Amy', 'CSE', 2009)
 teacher1 = Teacher('John', ['Art', 'Computer', 'Management'])
@@ -73,8 +78,8 @@ teacher1 = Teacher('John', ['Art', 'Computer', 'Management'])
 #print(teacher1.get_details())
 
 
-if __name__ = '__main__':
-    if sys.argv[1] = 'teacher':
+if __name__ == '__main__':
+    if sys.argv[1] == 'teacher':
         teacher1.get_grade(sys.argv[2])
     else:
         student1.get_grade(sys.argv[2])
